@@ -20,11 +20,21 @@ class Video:
         $ video[0]
         => Frameクラスが返る
         $ video[0].shape
-        => (1, 480, 640, 3)
+        => (480, 640, 3)
 
-        case3: videoに対して時間とx
-        $ video[]
+        case3: videoに対して時間とy軸に切り取り
+        $ video[0:10, 10:20]
+        => Videoクラスが返る
+        $ video[0:10, 10:20].shape
+        => (10, 10, 640, 3)
+
+        case4: videoに対して時間とy軸とx軸に切り取り
+        $ video[0:10, 10:20, 20:30]
+        => Videoクラスが返る
+        $ video[0:10, 10:20, 20:30].shape
+        => (10, 10, 10, 3)
         """
+        
         # indexの分離
         if isinstance(index, tuple):
             time_index = index[0] # 時間方向
